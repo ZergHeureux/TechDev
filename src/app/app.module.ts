@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {CalendarViewModule} from "./components/calendar-view/calendar-view.module";
 import { environment } from '../environments/environment';
+import { QrCodeImplModule } from './components/qr-code/qr-code-impl.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     CalendarViewModule,
+    QrCodeImplModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
