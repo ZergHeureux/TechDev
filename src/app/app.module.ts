@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import {CalendarViewModule} from "./components/calendar-view/calendar-view.module";
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { environment } from '../environments/environment';
     AppComponent
   ],
   imports: [
+    CalendarViewModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -25,4 +27,5 @@ import { environment } from '../environments/environment';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
