@@ -8,11 +8,14 @@ import { colors } from '../calendar-utils/colors';
 
 @Component({
   selector: 'mwl-demo-component',
+
+  // selector: 'app-calendar-view-all',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  templateUrl: 'template.html',
+  templateUrl: 'calendar-view-all.component.html',
 })
-export class DemoComponent {
+export class CalendarViewAllComponent {
+
   view: CalendarView = CalendarView.Month;
 
   viewDate: Date = new Date();
@@ -43,3 +46,6 @@ export class DemoComponent {
 
   CalendarView = CalendarView;
 }
+
+
+

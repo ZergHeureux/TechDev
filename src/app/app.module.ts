@@ -3,18 +3,16 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CalendarCommonModule} from "angular-calendar";
-import {DemoModule} from "./components/calendar/demo.module";
+import {CalendarViewModule} from "./components/calendar-view/calendar-view.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
-    DemoModule,
+    CalendarViewModule,
     BrowserModule,
-    AppRoutingModule,
-    CalendarCommonModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
