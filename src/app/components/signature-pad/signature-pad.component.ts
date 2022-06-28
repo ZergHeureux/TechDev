@@ -3,7 +3,7 @@ import { NgSignaturePadOptions, SignaturePadComponent } from '@almothafar/angula
 
 
 @Component({
-    selector: 'test',
+    selector: 'sign-pad',
     templateUrl: './signature-pad.component.html',
     styleUrls: ['./signature-pad.component.scss']
 })
