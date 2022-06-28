@@ -8,15 +8,22 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import {CalendarViewModule} from "./components/calendar-view/calendar-view.module";
 import { environment } from '../environments/environment';
 
+import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
+import { SignaturePad } from './components/signature-pad/signature-pad.component';
+import { ButtonModule } from 'primeng/button';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignaturePad,
   ],
   imports: [
     CalendarViewModule,
+    ButtonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    AngularSignaturePadModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
