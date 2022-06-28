@@ -24,14 +24,7 @@ export class SignaturePad {
 
     canValidate: boolean = false;
 
-    constructor() {
-        this.signInfo = {
-            name: "Workshop Tech",
-            schedule: "27 juin 2022 13h30 - 17h00",
-            studentName: "BAILLY Maxime",
-            isSigned: false,
-        }
-    }
+    constructor() {}
 
     ngAfterViewInit() {
         this.signaturePad.clear();
@@ -57,7 +50,10 @@ export class SignaturePad {
 export interface  SignInformations {
     name?: string,
     schedule?: string,
-    studentName?: string,
     isSigned?: boolean,
     signImage?: string,
+    student?: {
+        firstname?: string,
+        lastname?: string,
+    }
 }
