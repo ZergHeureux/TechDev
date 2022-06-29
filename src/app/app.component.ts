@@ -36,3 +36,4 @@ export class AppComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 }
+
