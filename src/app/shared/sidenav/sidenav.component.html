@@ -1,0 +1,40 @@
+<div id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar sidebar-smt">
+  <button *ngIf="mobileQuery.matches" class="d-flex align-self-start"  mat-icon-button (click)="toggleSidebar()">
+    <mat-icon class="hamburger">menu</mat-icon>
+  </button>
+  <div class=" pt-3  d-flex flex-column justify-content-between">
+    <ul class="nav flex-column ">
+
+      <li  class="nav-item">
+        <a  class="nav-link " aria-current="page" href="#">
+          <mat-icon class="home">home</mat-icon>
+            Accueil
+        </a>
+      </li>
+
+      <li  class="nav-item">
+          <a  class="nav-link " aria-current="page" href="#">
+            <mat-icon class="home">help</mat-icon>
+            help
+          </a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link"  href="#">
+            <mat-icon class="notifications">notifications</mat-icon>
+              Notifications
+          </a>
+      </li>
+
+
+    </ul>
+
+    <div class="d-flex flex-column align-items-center mention-legales">
+        <a href="#">Mentions legales</a>
+        <button>Déconnexion</button>
+    </div>
+
+</div>
+
+
+</div>
