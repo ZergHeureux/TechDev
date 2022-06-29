@@ -1,0 +1,46 @@
+<p-table [value]="classInfo.students" styleClass="p-datatable-striped" [paginator]="true" [rows]="25" [showCurrentPageReport]="true" responsiveLayout="stack"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} étudiants" [rowsPerPageOptions]="[10,25,50]"
+        [(selection)]="selectedStudents" [rowSelectable]="isRowSelectable">
+    <ng-template pTemplate="caption">
+        Liste des stagiaires
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngIf="isTeacherView" style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>Prénom</th>
+            <th pSortableColumn="lastname">Nom <p-sortIcon field="lastname"></p-sortIcon></th>
+            <th pSortableColumn="hasSigned">Présent <p-sortIcon field="hasSigned"></p-sortIcon></th>
+            <th>Signature</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student et-columns="columns">
+        <tr>
+            <td *ngIf="isTeacherView">
+                <p-tableCheckbox [value]="student" [disabled]="student.hasSigned"></p-tableCheckbox>
+            </td>
+            <td>
+                <span class="p-column-title">Prénom</span>
+                {{student.firstname}}
+            </td>
+            <td>
+                <span class="p-column-title">Nom</span>
+                {{student.lastname}}
+            </td>
+            <td class="text-center">
+                <span class="p-column-title">Présent</span>
+                <i class="pi" [ngClass]="{'true-icon pi-check-circle': student.hasSigned, 'false-icon pi-times-circle': !student.hasSigned}"></i>
+            </td>
+            <td class="signature-td">
+                <span class="p-column-title">Signature</span>
+                <img *ngIf="student.hasSigned" [src]="student.signImage">
+                <button *ngIf="!student.hasSigned" pButton pRipple label="Signer" class="p-button" (click)="openSignatureModal(student)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [(visible)]="display">
+    <sign-pad [signInfo]="studentSignature" (signedEvent)="signedEvent($event)"></sign-pad>
+</p-dialog>
