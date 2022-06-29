@@ -35,6 +35,10 @@ h1, h2, p {
             margin: 0.5rem 0;
         }
 
+        #signature-pad {
+            background: none;
+        }
+
         ::ng-deep .signature-pad-canvas {
             border: none !important;
         }
