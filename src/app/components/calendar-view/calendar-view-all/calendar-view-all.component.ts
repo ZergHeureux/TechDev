@@ -6,6 +6,7 @@ import {
 import { CalendarEvent, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { colors } from '../calendar-utils/colors';
 import {addHours, startOfDay} from "date-fns";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'mwl-demo-component',
@@ -105,6 +106,12 @@ export class CalendarViewAllComponent {
   weekStartsOn = DAYS_OF_WEEK.SUNDAY;
 
   CalendarView = CalendarView;
+  constructor(private router: Router){}
+
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log('Event clicked', event);
+    this.router.navigate(['/student-list']).then(r => console.log(r));
+  }
 }
 
 
