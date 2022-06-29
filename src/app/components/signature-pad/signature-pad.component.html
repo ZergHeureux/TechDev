@@ -1,0 +1,24 @@
+<div id="pad" class="container" *ngIf="!signInfo.isSigned">
+    <div id="class-info-container">
+        <h1>{{ signInfo.name }}</h1>
+        <p>{{ signInfo.schedule }}</p>
+    </div>
+
+    <div id="sign-container">
+        <h2>{{ signInfo.student?.lastname }} {{ signInfo.student?.firstname }}</h2>
+        <button pButton pRipple id="erase-btn" type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" (click)="clearSignature()"></button>
+        <signature-pad #signature id="signature-pad" [options]="signaturePadOptions" (drawEnd)="drawEnd($event)"></signature-pad>
+        <p>Merci de signer dans ce cadre</p>
+    </div>
+
+    <button pButton pRipple label="Valider" class="p-button-lg p-button-success" icon="pi pi-check" iconPos="left" (click)="validateSignature()" [disabled]="!canValidate"></button>
+</div>
+
+<div id="complete" class="container" *ngIf="signInfo.isSigned">
+    <div class="info">
+        <h1>{{ signInfo.name }}</h1>
+        <p>{{ signInfo.schedule }}</p>
+        <h2>{{ signInfo.student?.lastname }} {{ signInfo.student?.firstname }}</h2>
+    </div>
+    <img [src]="signInfo.signImage">
+</div>
