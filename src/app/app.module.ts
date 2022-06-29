@@ -13,7 +13,6 @@ import { QrCodeImplModule } from './components/qr-code/qr-code-impl.module';
 
 import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { SignaturePad } from './components/signature-pad/signature-pad.component';
-import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { StudentList } from './components/student-list/student-list.component';
