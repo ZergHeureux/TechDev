@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CalendarViewModule } from "./components/calendar-view/calendar-view.module";
 import { environment } from '../environments/environment';
+import { QrCodeImplModule } from './components/qr-code/qr-code-impl.module';
 
 import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { SignaturePad } from './components/signature-pad/signature-pad.component';
@@ -23,6 +24,7 @@ import { StudentList } from './components/student-list/student-list.component';
   ],
   imports: [
     CalendarViewModule,
+    QrCodeImplModule,
     ButtonModule,
     BrowserModule,
     BrowserAnimationsModule,
