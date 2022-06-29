@@ -8,17 +8,20 @@ import {SafeUrl} from "@angular/platform-browser";
 })
 export class QrCodeImplComponent implements OnInit {
 
-  public myAngularxQrCode: string = "";
   public qrCodeDownloadLink: SafeUrl = "";
-
+  display: boolean = false;
   constructor () {
-    this.myAngularxQrCode = 'Your QR code data string';
+  }
+
+  ngOnInit(): void {
   }
 
   onChangeURL(url: SafeUrl) {
     this.qrCodeDownloadLink = url;
   }
-  ngOnInit(): void {
+
+  showDialog() {
+    this.display = true;
   }
 
 }
