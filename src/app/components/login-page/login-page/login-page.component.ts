@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
   itle = 'TechDev';
   TOKEN_KEY = 'auth-token';
@@ -20,9 +20,7 @@ export class LoginPageComponent implements OnInit {
   constructor(/*private api: HttpClient,*/ public router: Router){
 
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   onSubmitConnection (){
     var login_i = <HTMLInputElement>document.getElementById("login_input");
