@@ -1,7 +1,7 @@
 <p-dialog [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
   <div class="qrcodeImage text-center">
     <qrcode
-      [qrdata]="'https://github.com/Cordobo/angularx-qrcode'"
+      [qrdata]="qrCodeDownloadLink"
       [allowEmptyString]="true"
       [cssClass]="'center'"
       [elementType]="'canvas'"
