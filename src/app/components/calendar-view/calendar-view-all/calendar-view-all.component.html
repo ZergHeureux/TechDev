@@ -78,6 +78,7 @@
       [events]="events"
       [dayStartHour]="dayStartHour"
       [dayEndHour]="dayEndHour"
+      (eventClicked)="eventClicked($event)"
     >
     </mwl-calendar-week-view>
     <mwl-calendar-day-view
@@ -86,6 +87,7 @@
       [events]="events"
       [dayStartHour]="dayStartHour"
       [dayEndHour]="dayEndHour"
+      (eventClicked)="eventClicked($event)"
     >
     </mwl-calendar-day-view>
   </div>
