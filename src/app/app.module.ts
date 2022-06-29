@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,9 +18,13 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { StudentList } from './components/student-list/student-list.component';
 
+import { ButtonModule } from 'primeng/button';
+import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    LoginPageComponent,
     SignaturePad,
     StudentList
   ],
