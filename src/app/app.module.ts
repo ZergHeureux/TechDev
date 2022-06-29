@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ButtonModule } from 'primeng/button';
+import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginPageComponent,
   ],
   imports: [
     ButtonModule,
