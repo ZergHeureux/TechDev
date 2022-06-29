@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output } from "@angular/core";
 import { SignInformations } from "../signature-pad/signature-pad.component";
 
 @Component({
@@ -8,6 +8,7 @@ import { SignInformations } from "../signature-pad/signature-pad.component";
 })
 export class StudentList {
 
+    @Input() isTeacherView: boolean = false;
     @Input() classInfo: ClassInformations = {
         name: 'WorkShop Tech',
         date: {
@@ -15,19 +16,22 @@ export class StudentList {
             end: 'Mon, 27 Jun 2022 10:30:00 GMT',
         },
         students: [
-            {firstname: "Yvan", lastname: "LEMAIRE", hasSigned: false},
-            {firstname: "Jean", lastname: "VALJEAN", hasSigned: false},
-            {firstname: "Lola", lastname: "DUPONT", hasSigned: false},
-            {firstname: "Paul", lastname: "RAOUL", hasSigned: false},
-            {firstname: "Mathilde", lastname: "DUMARCHAND", hasSigned: false},
-            {firstname: "Rose", lastname: "LE GRAND", hasSigned: false},
-            {firstname: "Michel", lastname: "MARTIN", hasSigned: false},
-            {firstname: "Ninon", lastname: "DUBOIS", hasSigned: false},
+            {firstname: "Yvan", lastname: "LEMAIRE", hasSigned: false, mail: 'yvan@student.school.fr'},
+            {firstname: "Jean", lastname: "VALJEAN", hasSigned: false, mail: 'jean@student.school.fr'},
+            {firstname: "Lola", lastname: "DUPONT", hasSigned: false, mail: 'lola@student.school.fr'},
+            {firstname: "Paul", lastname: "RAOUL", hasSigned: false, mail: 'paul@student.school.fr'},
+            {firstname: "Mathilde", lastname: "DUMARCHAND", hasSigned: false, mail: 'mathilde@student.school.fr'},
+            {firstname: "Rose", lastname: "LE GRAND", hasSigned: false, mail: 'rose@student.school.fr'},
+            {firstname: "Michel", lastname: "MARTIN", hasSigned: false, mail: 'michel@student.school.fr'},
+            {firstname: "Ninon", lastname: "DUBOIS", hasSigned: false, mail: 'ninon@student.school.fr'},
         ],
     };
 
+    @Output() selectedStudents: Student[] = [];
+
     display: boolean = false;
     studentSignature: SignInformations = {};
+
 
     openSignatureModal(student: Student) {
         this.studentSignature = {
@@ -45,6 +49,10 @@ export class StudentList {
         let student: Student = this.classInfo.students.filter(student => student.lastname == signInfo.student?.lastname && student.firstname == signInfo.student?.firstname)[0];
         student.hasSigned = true;
         student.signImage = signInfo.signImage;
+    }
+
+    isRowSelectable(event: any) {
+        return !event.data.hasSigned;
     }
 
     /**
