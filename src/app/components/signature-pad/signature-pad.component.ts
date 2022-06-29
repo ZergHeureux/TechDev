@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
 import { NgSignaturePadOptions, SignaturePadComponent } from '@almothafar/angular-signature-pad';
+import { Observable, Subscription } from "rxjs";
 
 
 @Component({
@@ -9,6 +10,9 @@ import { NgSignaturePadOptions, SignaturePadComponent } from '@almothafar/angula
 })
 export class SignaturePad {
 
+    private eventsSubscription!: Subscription;
+
+    @Input() events!: Observable<void>;
     @Input() signInfo: SignInformations = {};
     @Output() signedEvent = new EventEmitter<SignInformations>();
 
@@ -21,15 +25,44 @@ export class SignaturePad {
         canvasHeight: 300,
         backgroundColor: "white"
     };
-
     canValidate: boolean = false;
 
     constructor() {}
 
+    ngOnInit(){
+        this.eventsSubscription = this.events.subscribe(() => {
+            this?.signaturePad?.clear();
+        });
+    }
+
     ngAfterViewInit() {
+        this.resizeCanvas();
+    }
+
+    ngOnDestroy() {
+        this.eventsSubscription.unsubscribe();
+    }
+
+
+    @HostListener('window:resize', ['$event'])
+    resizeCanvas() {
+        let screenWidth = window.screen.availWidth;
+        let canvas = { width: 500, height: 300, ratio: 3/5 };
+
+        if (screenWidth <= 500) {
+            canvas.width = screenWidth - 10;
+            canvas.height = (screenWidth - 10) * canvas.ratio;
+        }
+
+        this.signaturePadOptions.canvasWidth = canvas.width;
+        this.signaturePadOptions.canvasHeight = canvas.height;
+        this.signaturePad?.set('canvasWidth', canvas.width);
+        this.signaturePad?.set('canvasHeight', canvas.height);
+
         this.signaturePad.clear();
     }
 
+    
     validateSignature() {
         this.signInfo.signImage = this.signaturePad.toDataURL("image/jpeg");
         this.signInfo.isSigned = true;

@@ -1,4 +1,5 @@
 import { Component, Input, Output } from "@angular/core";
+import { Subject } from "rxjs";
 import { SignInformations } from "../signature-pad/signature-pad.component";
 
 @Component({
@@ -29,8 +30,15 @@ export class StudentList {
 
     @Output() selectedStudents: Student[] = [];
 
+    onCloseSignatureModal: Subject<void> = new Subject<void>();
+
     display: boolean = false;
     studentSignature: SignInformations = {};
+
+
+    emitEventOnCloseSignatureModal() {
+        this.onCloseSignatureModal.next();
+    }
 
 
     openSignatureModal(student: Student) {
@@ -55,6 +63,7 @@ export class StudentList {
         return !event.data.hasSigned;
     }
 
+    
     /**
      * Format two date to a schedule date like : 'day 0 month 00:00 - 12:00'
      * @param start Start Date
