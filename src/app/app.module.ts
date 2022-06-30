@@ -30,6 +30,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
 import { DashboardPage } from './pages/dashboard/dashboard.component';
 import { CalendarPage } from './pages/calendar/calendar.component';
 import { StudentListPage } from './pages/student-list/student-list.component';
+import { StudentListTeacherPage } from './pages/student-list-teacher/student-list-teacher.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { StudentListPage } from './pages/student-list/student-list.component';
     DashboardPage,
     CalendarPage,
     StudentListPage,
+    StudentListTeacherPage,
   ],
   imports: [
     CalendarViewModule,
