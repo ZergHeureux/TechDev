@@ -9,9 +9,8 @@ import {addHours, startOfDay} from "date-fns";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'mwl-demo-component',
 
-  // selector: 'app-calendar-view-all',
+  selector: 'app-calendar-view-all',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'calendar-view-all.component.html',

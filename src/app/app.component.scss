@@ -3,8 +3,23 @@ mat-sidenav{
   height: 100vh;
   background-color: #fff;
   border-right: 1px solid #717171;
+  position: fixed;
+}
+
+app-sidenav{
+  width: 100%!important;
+  display: contents!important;
 }
 
 mat-sidenav-container{
-  min-height: 100vh;
+  min-height: 100vh!important;
 }
+
+main{
+  height: 100%!important;
+  background-color: #fff;
+  margin: 0px;
+  color: #000;
+}
+
+
