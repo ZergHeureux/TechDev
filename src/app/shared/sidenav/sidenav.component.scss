@@ -1,0 +1,37 @@
+#sidebarMenu{
+  height: 100vh;
+  width: 100%!important;
+  color: #717171;
+}
+
+#sidebarMenu a{
+  color: #717171;
+  display: flex;
+  align-items: center;
+}
+
+#sidebarMenu a mat-icon{
+  margin-right: 8px;
+}
+
+#sidebarMenu>div{
+  height: 90%;
+}
+
+.mention-legales button{
+  width: 100%;
+  border-radius: 14px;
+  border: none;
+  background-color: #EEEEEE;
+  color: #717171;
+  margin-top: 15px;
+  width: 90%;
+  height: 37px;
+  font-weight: 500;
+}
+
+.nav{
+  font-weight: 500;
+}
+
+
