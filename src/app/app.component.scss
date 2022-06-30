@@ -5,6 +5,16 @@ mat-sidenav{
   border-right: 1px solid #717171;
 }
 
+app-sidenav{
+  width: 100%!important;
+  display: contents!important;
+}
+
 mat-sidenav-container{
-  min-height: 100vh;
+  min-height: 100vh!important;
+}
+
+main{
+  background-color: #fff;
+  margin: 0px;
 }
