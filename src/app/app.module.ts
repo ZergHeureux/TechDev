@@ -27,6 +27,9 @@ import { DialogModule } from 'primeng/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
+import { DashboardPage } from './pages/dashboard/dashboard.component';
+import { CalendarPage } from './pages/calendar/calendar.component';
+import { StudentListPage } from './pages/student-list/student-list.component';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
     StudentList,
     SidenavComponent,
     HeaderComponent,
+    DashboardPage,
+    CalendarPage,
+    StudentListPage,
   ],
   imports: [
     CalendarViewModule,
