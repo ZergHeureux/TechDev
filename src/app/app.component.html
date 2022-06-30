@@ -1,17 +1,16 @@
-<!--=============== Navigation =================-->
 
-<mat-sidenav-container>
 
-  <mat-sidenav  mode="side" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="sideBarOpen" >
+<mat-sidenav-container style="background-color:white">
+
+  <mat-sidenav  mode="side" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="sideBarOpen"  >
     <app-sidenav [mobileQuery]="mobileQuery" (toggleSidebarForMe)="sideBarToggler()"></app-sidenav>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <app-header *ngIf="router.url != '' && router.url != '/login'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
 
-    <main><router-outlet></router-outlet></main>
+    <main style="color:black"><router-outlet></router-outlet></main>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
 
