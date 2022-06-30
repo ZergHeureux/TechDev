@@ -9,6 +9,7 @@ import {
   startOfDay,
   addHours,
 } from 'date-fns';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-calendar-view-day',
@@ -105,6 +106,13 @@ export class CalendarViewDayComponent {
   weekStartsOn = DAYS_OF_WEEK.SUNDAY;
 
   CalendarView = CalendarView;
+
+  constructor(private router: Router){}
+
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log('Event clicked', event);
+    this.router.navigate(['/student-list']).then(r => console.log(r));
+  }
 }
 
 

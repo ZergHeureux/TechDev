@@ -13,15 +13,24 @@ import { QrCodeImplModule } from './components/qr-code/qr-code-impl.module';
 
 import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { SignaturePad } from './components/signature-pad/signature-pad.component';
+
+import { StudentList } from './components/student-list/student-list.component';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { HeaderComponent } from './shared/header/header.component';
+
+import { SidebarModule } from 'primeng/sidebar';
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
-import { StudentList } from './components/student-list/student-list.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ButtonModule } from 'primeng/button';
 import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
 import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
 import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +39,8 @@ import { MessageService } from 'primeng/api';
     SignaturePad,
     StudentList,
     TeacherClassView,
+    SidenavComponent,
+    HeaderComponent,
   ],
   imports: [
     CalendarViewModule,
@@ -42,6 +53,12 @@ import { MessageService } from 'primeng/api';
     TableModule,
     DialogModule,
     ToastModule,
+    AppRoutingModule,
+    SidebarModule,
+    MenubarModule,
+    ButtonModule,
+    NoopAnimationsModule,
+    MaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
