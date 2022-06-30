@@ -24,6 +24,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
@@ -31,6 +32,8 @@ import { DashboardPage } from './pages/dashboard/dashboard.component';
 import { CalendarPage } from './pages/calendar/calendar.component';
 import { StudentListPage } from './pages/student-list/student-list.component';
 import { StudentListTeacherPage } from './pages/student-list-teacher/student-list-teacher.component';
+import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -39,6 +42,7 @@ import { StudentListTeacherPage } from './pages/student-list-teacher/student-lis
     LoginPageComponent,
     SignaturePad,
     StudentList,
+    TeacherClassView,
     SidenavComponent,
     HeaderComponent,
     DashboardPage,
@@ -56,6 +60,7 @@ import { StudentListTeacherPage } from './pages/student-list-teacher/student-lis
     AngularSignaturePadModule,
     TableModule,
     DialogModule,
+    ToastModule,
     AppRoutingModule,
     SidebarModule,
     MenubarModule,
@@ -69,7 +74,7 @@ import { StudentListTeacherPage } from './pages/student-list-teacher/student-lis
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

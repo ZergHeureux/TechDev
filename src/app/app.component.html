@@ -1,4 +1,4 @@
-<!--=============== Navigation =================-->
+
 
 <mat-sidenav-container style="background-color:white">
 
@@ -7,11 +7,10 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-header  (toggleSidebarForMe)="sideBarToggler()"></app-header>
+    <app-header *ngIf="router.url != '' && router.url != '/login'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
 
     <main style="color:black"><router-outlet></router-outlet></main>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
 

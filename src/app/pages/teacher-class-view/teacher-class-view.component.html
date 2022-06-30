@@ -1,0 +1,51 @@
+<h1>{{classInfo.name}}</h1>
+
+<div class="info-class">
+    <p>Participant : <span>{{classInfo.students.length}}</span></p>
+    <p>Durée : <span>{{classDuration()}}</span></p>
+</div>
+
+<div class="action-container">
+    <p>Mode de signature</p>
+    <span class="p-buttonset">
+        <button pButton class="p-button-sm" type="button" label="QR-Code" (click)="showQRCode()"></button>
+        <button pButton class="p-button-sm" type="button" label="URL"></button>
+        <button pButton class="p-button-sm" type="button" label="Mail" (click)="openMailModal()"></button>
+    </span>
+</div>
+
+<div class="stats-class">
+    <div class="stats">
+        <p>Présent</p>
+        <span class="success">{{ getStudentWhoSigned }}</span>
+    </div>
+    <div class="stats">
+        <p>Inconnu</p>
+        <span>{{ getStudentWhoNotSigned }}</span>
+    </div>
+</div>
+
+<student-list [isTeacherView]="true" [classInfo]="classInfo" (selected)="addSelectedStudent($event)"></student-list>
+
+<div class="validate-button">
+    <button *ngIf="!classInfo.teacher.hasSigned" pButton type="button" label="Valider l'émmargement" (click)="openSignatureModal()"></button>
+    <button *ngIf="classInfo.teacher.hasSigned" pButton class="p-button-success" type="button" label="Emmargement validé" icon="pi pi-check"></button>
+</div>
+
+
+<p-dialog [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [(visible)]="displaySignaturePad" (onHide)="emitEventOnCloseSignatureModal()">
+    <sign-pad [signInfo]="teacherSignature" (signedEvent)="signedEvent($event)" [events]="onCloseSignatureModal.asObservable()"></sign-pad>
+</p-dialog>
+
+<p-dialog header="Comfirmer l'envoie d'email" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [(visible)]="displayMailConfirm">
+    <div class="email-modal-container">
+        <div *ngFor="let student of selectedStudents">
+            <p>{{ student.mail }}</p>
+        </div>
+        <button pButton class="p-button" type="button" label="Envoyer email" (click)="sendEmail()"></button>
+    </div>
+</p-dialog>
+
+<app-qr-code-impl [display]="displayQrCode"></app-qr-code-impl>
+
+<p-toast></p-toast>
