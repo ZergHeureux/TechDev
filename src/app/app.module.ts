@@ -15,17 +15,21 @@ import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { SignaturePad } from './components/signature-pad/signature-pad.component';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 import { StudentList } from './components/student-list/student-list.component';
 
 import { ButtonModule } from 'primeng/button';
 import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
+import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     SignaturePad,
-    StudentList
+    StudentList,
+    TeacherClassView,
   ],
   imports: [
     CalendarViewModule,
@@ -37,6 +41,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
     AngularSignaturePadModule,
     TableModule,
     DialogModule,
+    ToastModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -44,7 +49,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
