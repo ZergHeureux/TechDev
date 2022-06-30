@@ -1,0 +1,74 @@
+h1 {
+    text-align: center;
+    color: rgb(25, 130, 216);
+}
+p {
+    margin: 0;
+}
+
+.info-class {
+    display: flex;
+    justify-content: space-around;
+
+    p {
+        font-size: 1.2rem;
+
+        span {
+            color: rgb(25, 130, 216);
+        }
+    }
+}
+
+.action-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+
+    p {
+        padding: 0.5rem 0;
+    }
+}
+
+.stats-class {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid grey;
+    padding: 0.5rem 0;
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        span {
+            font-weight: bold;
+
+            &.success {
+                color: green;
+            }
+        }
+    }
+}
+
+.validate-button {
+    display: flex;
+    justify-content: center;
+
+    button {
+        margin: 2rem 0;
+    }
+}
+
+.email-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        margin-top: 1rem;
+    }
+}

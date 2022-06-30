@@ -24,9 +24,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
+import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -35,6 +38,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
     LoginPageComponent,
     SignaturePad,
     StudentList,
+    TeacherClassView,
     SidenavComponent,
     HeaderComponent,
   ],
@@ -48,6 +52,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
     AngularSignaturePadModule,
     TableModule,
     DialogModule,
+    ToastModule,
     AppRoutingModule,
     SidebarModule,
     MenubarModule,
@@ -61,7 +66,7 @@ import { LoginPageComponent } from './components/login-page/login-page/login-pag
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

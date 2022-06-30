@@ -1,6 +1,15 @@
-<p-table [value]="classInfo.students" styleClass="p-datatable-striped" [paginator]="true" [rows]="25" [showCurrentPageReport]="true" responsiveLayout="stack"
-        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} étudiants" [rowsPerPageOptions]="[10,25,50]"
-        [(selection)]="selectedStudents" [rowSelectable]="isRowSelectable">
+<p-table [value]="classInfo.students"
+         styleClass="p-datatable-striped"
+         [paginator]="true"
+         [rows]="25"
+         [showCurrentPageReport]="true" 
+         responsiveLayout="stack"
+         currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} étudiants" 
+         [rowsPerPageOptions]="[10,25,50]"
+         [(selection)]="selectedStudents" 
+         [rowSelectable]="isRowSelectable"
+         (selectionChange)="updateSelectedRows()"
+>
     <ng-template pTemplate="caption">
         Liste des stagiaires
     </ng-template>
