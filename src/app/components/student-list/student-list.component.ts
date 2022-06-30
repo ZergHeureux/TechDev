@@ -9,6 +9,10 @@ import { SignInformations } from "../signature-pad/signature-pad.component";
 })
 export class StudentList {
 
+    constructor(private cache:CacheStorage){
+        this.updateCache();
+    }
+
     @Input() isTeacherView: boolean = false;
     @Input() classInfo: ClassInformations = {
         name: 'WorkShop Tech',
@@ -35,6 +39,38 @@ export class StudentList {
     display: boolean = false;
     studentSignature: SignInformations = {};
 
+    updateCache(){
+        let name = <string>this.classInfo.name
+        let stdJson = JSON.stringify(this.classInfo.students);
+        this.cache.has(name).then((p)=>{
+            this.cache.open(name).then((c)=>{
+                c.add(stdJson);
+            })
+       })
+       if (navigator.onLine){
+
+
+
+            //INSERT FUNCTION HERE
+
+            /* EXEMPLE
+
+            this.cache.match(name).then((d)=>{
+                sendDataToServer(JSON.parse(d)); //sendDataToServer is an unknown or TODO function
+            })
+
+            */
+            
+            
+        
+        alert("navigator online data will be sent :D")
+       }
+       else{
+        setTimeout(()=>{
+            this.updateCache()
+        },5000)
+       }
+    }
 
     emitEventOnCloseSignatureModal() {
         this.onCloseSignatureModal.next();
@@ -57,6 +93,7 @@ export class StudentList {
         let student: Student = this.classInfo.students.filter(student => student.lastname == signInfo.student?.lastname && student.firstname == signInfo.student?.firstname)[0];
         student.hasSigned = true;
         student.signImage = signInfo.signImage;
+        this.updateCache();
     }
 
     isRowSelectable(event: any) {
