@@ -26,7 +26,8 @@ export class LoginPageComponent {
     var login_i = <HTMLInputElement>document.getElementById("login_input");
     var password_i = <HTMLInputElement>document.getElementById("pwd_input");   
     this.login({email:login_i.value,password:password_i.value})
-    alert("connected but think about reading the code ;)")
+    //alert("connected but think about reading the code ;)")
+    this.router.navigate(['/dashboard']);
   }
 
   //classic connection functions 

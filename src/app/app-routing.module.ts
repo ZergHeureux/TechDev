@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginPageComponent} from "./components/login-page/login-page/login-page.component";
+import {LoginPageComponent} from "./components/login-page/login-page.component";
 import {DashboardPage} from "./pages/dashboard/dashboard.component";
 import {CalendarPage} from "./pages/calendar/calendar.component";
 import { StudentView } from './pages/student-view/student-view.component';

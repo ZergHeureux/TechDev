@@ -28,17 +28,16 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
 import { DashboardPage } from './pages/dashboard/dashboard.component';
 import { CalendarPage } from './pages/calendar/calendar.component';
 import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
 import { StudentView } from './pages/student-view/student-view.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
     SignaturePad,
     StudentList,
     TeacherClassView,
@@ -47,6 +46,7 @@ import { StudentView } from './pages/student-view/student-view.component';
     DashboardPage,
     CalendarPage,
     StudentView,
+    LoginPageComponent
   ],
   imports: [
     CalendarViewModule,
