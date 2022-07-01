@@ -10,14 +10,16 @@ import { SignInformations } from "../signature-pad/signature-pad.component";
 })
 export class StudentList {
 
-    constructor(private cache:CacheStorage){
-        this.updateCache();
+    constructor(/*private cache:CacheStorage*/){
+        //this.updateCache();
     }
 
     @Input() isTeacherView: boolean = false;
     @Input() classInfo!: ClassInformations;
+    @Input() disabledAllButton: boolean = false;
 
     @Output() selected = new EventEmitter<Student[]>();
+    @Output() studentSignedEvent = new EventEmitter<SignInformations>();
     selectedStudents: Student[] = [];
 
     onCloseSignatureModal: Subject<void> = new Subject<void>();
@@ -25,7 +27,7 @@ export class StudentList {
     display: boolean = false;
     studentSignature: SignInformations = {};
 
-    updateCache(){
+    /*updateCache(){
         let name = <string>this.classInfo.name
         let stdJson = JSON.stringify(this.classInfo.students);
         this.cache.has(name).then((p)=>{
@@ -39,13 +41,13 @@ export class StudentList {
 
             //INSERT FUNCTION HERE
 
-            /* EXEMPLE
+             EXEMPLE
 
             this.cache.match(name).then((d)=>{
                 sendDataToServer(JSON.parse(d)); //sendDataToServer is an unknown or TODO function
             })
 
-            */
+            
             
             
         
@@ -56,7 +58,7 @@ export class StudentList {
             this.updateCache()
         },5000)
        }
-    }
+    }*/
 
     emitEventOnCloseSignatureModal() {
         this.onCloseSignatureModal.next();
@@ -79,7 +81,8 @@ export class StudentList {
         let student: Student = this.classInfo.students.filter(student => student.lastname == signInfo.student?.lastname && student.firstname == signInfo.student?.firstname)[0];
         student.hasSigned = true;
         student.signImage = signInfo.signImage;
-        this.updateCache();
+        this.studentSignedEvent.emit(signInfo);
+        //this.updateCache();
     }
 
     isRowSelectable(event: any) {

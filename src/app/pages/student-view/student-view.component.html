@@ -1,0 +1,8 @@
+<h1>{{classInfo.name}}</h1>
+
+<div class="info-class">
+    <p>Participant : <span>{{classInfo.students.length}}</span></p>
+    <p>Durée : <span>{{classDuration()}}</span></p>
+</div>
+
+<student-list [isTeacherView]="false" [classInfo]="classInfo" [disabledAllButton]="disabledAllSignatureButton" (studentSignedEvent)="signedEvent($event)"></student-list>

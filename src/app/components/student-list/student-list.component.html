@@ -44,7 +44,7 @@
             <td class="signature-td">
                 <span class="p-column-title">Signature</span>
                 <img *ngIf="student.hasSigned" [src]="student.signImage">
-                <button *ngIf="!student.hasSigned" pButton pRipple label="Signer" class="p-button" (click)="openSignatureModal(student)"></button>
+                <button *ngIf="!student.hasSigned" pButton pRipple label="Signer" class="p-button" [disabled]="disabledAllButton" (click)="openSignatureModal(student)"></button>
             </td>
         </tr>
     </ng-template>
