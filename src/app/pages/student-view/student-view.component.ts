@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Subject } from "rxjs";
-import { SignInformations } from "src/app/components/signature-pad/signature-pad.component";
-import { ClassInformations } from "src/app/components/student-list/student-list.component";
+import { ClassInformations } from "src/app/interfaces/classInformations";
+import { SignInformations } from "src/app/interfaces/signInformations";
 
 @Component({
     selector: 'student-view',

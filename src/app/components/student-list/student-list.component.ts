@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Subject } from "rxjs";
+import { ClassInformations } from "src/app/interfaces/classInformations";
+import { SignInformations } from "src/app/interfaces/signInformations";
+import { Student } from "src/app/interfaces/student";
 import { DateUtils } from "src/app/utils/date.utils";
-import { SignInformations } from "../signature-pad/signature-pad.component";
 
 @Component({
     selector: 'student-list',
@@ -93,26 +95,4 @@ export class StudentList {
         this.selected.emit(this.selectedStudents);
     }
 
-}
-
-export interface Student {
-    firstname?: string,
-    lastname?: string,
-    hasSigned?: boolean,
-    signImage?: string,
-    mail?: string,
-}
-
-export interface ClassInformations {
-    name?: string,
-    date?: {
-        start?: any,
-        end?: any,
-    },
-    students: Student[],
-    teacher: {
-        firstname: string,
-        lastname: string,
-        hasSigned?: boolean,
-    }
 }

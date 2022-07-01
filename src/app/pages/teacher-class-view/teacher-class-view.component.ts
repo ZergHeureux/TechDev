@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { MessageService } from "primeng/api";
 import { Subject } from "rxjs";
-import { SignInformations } from "src/app/components/signature-pad/signature-pad.component";
-import { ClassInformations, Student } from "src/app/components/student-list/student-list.component";
+import { ClassInformations } from "src/app/interfaces/classInformations";
+import { SignInformations } from "src/app/interfaces/signInformations";
+import { Student } from "src/app/interfaces/student";
 import { DateUtils } from "src/app/utils/date.utils";
 
 @Component({
