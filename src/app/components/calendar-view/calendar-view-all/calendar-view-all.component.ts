@@ -109,7 +109,7 @@ export class CalendarViewAllComponent {
 
   eventClicked({ event }: { event: CalendarEvent }): void {
     console.log('Event clicked', event);
-    this.router.navigate(['/student-list']).then(r => console.log(r));
+    this.router.navigate(['/student-list-teacher']).then(r => console.log(r));
   }
 }
 

@@ -25,21 +25,19 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LoginPageComponent } from './components/login-page/login-page/login-page.component';
 import { DashboardPage } from './pages/dashboard/dashboard.component';
 import { CalendarPage } from './pages/calendar/calendar.component';
-import { StudentListPage } from './pages/student-list/student-list.component';
-import { StudentListTeacherPage } from './pages/student-list-teacher/student-list-teacher.component';
 import { TeacherClassView } from './pages/teacher-class-view/teacher-class-view.component';
-import { MessageService } from 'primeng/api';
+import { StudentView } from './pages/student-view/student-view.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
     SignaturePad,
     StudentList,
     TeacherClassView,
@@ -47,8 +45,8 @@ import { MessageService } from 'primeng/api';
     HeaderComponent,
     DashboardPage,
     CalendarPage,
-    StudentListPage,
-    StudentListTeacherPage,
+    StudentView,
+    LoginPageComponent
   ],
   imports: [
     CalendarViewModule,

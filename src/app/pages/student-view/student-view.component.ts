@@ -1,17 +1,14 @@
 import { Component } from "@angular/core";
-import { MessageService } from "primeng/api";
 import { Subject } from "rxjs";
 import { ClassInformations } from "src/app/interfaces/classInformations";
 import { SignInformations } from "src/app/interfaces/signInformations";
-import { Student } from "src/app/interfaces/student";
-import { DateUtils } from "src/app/utils/date.utils";
 
 @Component({
-    selector: 'teacher-class-view',
-    templateUrl: './teacher-class-view.component.html',
-    styleUrls: ['./teacher-class-view.component.scss']
+    selector: 'student-view',
+    templateUrl: './student-view.component.html',
+    styleUrls: ['./student-view.component.scss']
 })
-export class TeacherClassView {
+export class StudentView {
 
     classInfo: ClassInformations = {
         name: 'WorkShop Tech',
@@ -35,60 +32,21 @@ export class TeacherClassView {
             hasSigned: false,
         }
     };
-    selectedStudents: Student[] = [];
 
     onCloseSignatureModal: Subject<void> = new Subject<void>();
 
-    displayQrCode: boolean = false;
     displaySignaturePad: boolean = false;
-    displayMailConfirm: boolean = false;
-    teacherSignature: SignInformations = {};
+    disabledAllSignatureButton: boolean = false;
 
-    // Computed method
-    get getStudentWhoSigned() { return this.classInfo.students.filter(s => s.hasSigned).length; }
-    get getStudentWhoNotSigned() { return this.classInfo.students.filter(s => !s.hasSigned).length; }
-
-    constructor(private messageService: MessageService) {}
-    
-    addSelectedStudent(students: any) {
-        this.selectedStudents = students;
-    }
+    constructor() {}
 
     signedEvent(signInfo: SignInformations) {
-        this.classInfo.teacher.hasSigned = true;
+        this.disabledAllSignatureButton = true;
         // TODO call api to send data
     }
 
     emitEventOnCloseSignatureModal() {
         this.onCloseSignatureModal.next();
-    }
-
-    openSignatureModal() {
-        this.teacherSignature = {
-            name: this.classInfo.name,
-            schedule: DateUtils.convertDateToSchedule(new Date(this.classInfo.date?.start), new Date(this.classInfo.date?.end)),
-            student: {
-                firstname: this.classInfo.teacher.firstname,
-                lastname: this.classInfo.teacher.lastname,
-            }
-        }
-        this.displaySignaturePad = true;
-    }
-
-    showQRCode() {
-        this.displayQrCode = true;
-    }
-
-    openMailModal() {
-        this.displayMailConfirm = true;
-    }
-
-    sendEmail() {
-        // To send if success
-        this.messageService.add({severity:'success', summary:'Service email', detail:'Tous les emails on été envoyés'});
-
-        // To send on error
-        //this.messageService.add({severity:'error', summary:'Service email', detail:'Echec lors de l\'envoie de mail'});
     }
 
 

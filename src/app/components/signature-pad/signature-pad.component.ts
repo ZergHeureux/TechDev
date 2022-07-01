@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
 import { NgSignaturePadOptions, SignaturePadComponent } from '@almothafar/angular-signature-pad';
 import { Observable, Subscription } from "rxjs";
+import { SignInformations } from "src/app/interfaces/signInformations";
 
 
 @Component({
@@ -78,15 +79,4 @@ export class SignaturePad {
         this.canValidate = true;
     }
 
-}
-
-export interface  SignInformations {
-    name?: string,
-    schedule?: string,
-    isSigned?: boolean,
-    signImage?: string,
-    student?: {
-        firstname?: string,
-        lastname?: string,
-    }
 }
